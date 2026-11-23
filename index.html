@@ -225,7 +225,7 @@ input[type=text] {
 </style>
 <style>
 /* Calisul: caixa 201 com divisória em Z, medidas fixas (só visualização). */
-.chip-logo { background: #fff; border-radius: 8px; padding: 5px 12px; height: 54px; display: flex; align-items: center; }
+.chip-logo { background: none; padding: 0; height: 54px; display: flex; align-items: center; }
 .chip-logo img { height: 100%; width: auto; display: block; }
 .facts { display: grid; gap: 6px; font-size: 14px; font-variant-numeric: tabular-nums; margin: 0; }
 .facts div { display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px dotted var(--line); padding-bottom: 4px; }
@@ -1035,7 +1035,7 @@ label.chk input { accent-color: var(--brand); width: 18px; height: 18px; margin:
   }
   function go(b) {
     setDv(false);
-    anim = { k: 't', a: t, b: b, s: performance.now(), d: 1800 * Math.max(0.25, Math.abs(b - t)) + 300 };
+    anim = { k: 't', a: t, b: b, s: performance.now(), d: Math.max(400, 14000 * Math.abs(b - t)), lin: true };   // mesma velocidade do botão de montagem
     setPlaying(false);
   }
   $('bPlay').addEventListener('click', function () {
@@ -1054,7 +1054,7 @@ label.chk input { accent-color: var(--brand); width: 18px; height: 18px; margin:
   $('sDiv').addEventListener('click', function () {
     setDv(true);
     f = 0;
-    anim = { k: 'f', a: 0, b: 1, s: performance.now(), d: 2200, delay: 500 };
+    anim = { k: 'f', a: 0, b: 1, s: performance.now(), d: 2800, delay: 400, lin: true };
     setPlaying(false);
     apply();
   });
